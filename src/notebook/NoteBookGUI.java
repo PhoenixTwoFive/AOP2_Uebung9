@@ -43,6 +43,7 @@ public class NoteBookGUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				textArea.setText(notes.leseTermin(wtag.getSelectedItem().toString()));
 				System.out.println(wtag.getSelectedItem()+" wurde gewählt.");
 			}
 		});
