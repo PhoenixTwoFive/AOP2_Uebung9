@@ -26,7 +26,7 @@ public class NoteBookGUI extends JFrame{
 	public NoteBookGUI(){
 		this.setTitle("Notizbuch");
 		this.setLocation(100, 100);
-		this.setSize(400,400);
+		this.setSize(400,300);
 		this.setResizable(false);
 		//ContentPane
 		cp = (JPanel) this.getContentPane();
@@ -37,7 +37,7 @@ public class NoteBookGUI extends JFrame{
 		cp.add(wtaglabel);
 		
 		wtag = new JComboBox<String>(tage);
-		wtag.setBounds(20,30,110,20);
+		wtag.setBounds(20,30,110,24);
 		wtag.addActionListener(new ActionListener() {
 			
 			@Override
@@ -50,7 +50,7 @@ public class NoteBookGUI extends JFrame{
 		cp.add(wtag);
 		
 		anzeigenButton = new JButton("Anzeigen");
-		anzeigenButton.setBounds(20, 60, 110, 20);
+		anzeigenButton.setBounds(20, 60, 110, 24);
 		anzeigenButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -63,7 +63,7 @@ public class NoteBookGUI extends JFrame{
 		cp.add(anzeigenButton);
 		
 		speichernButton = new JButton("Speichern");
-		speichernButton.setBounds(20, 90, 110, 20);
+		speichernButton.setBounds(20, 90, 110, 24);
 		speichernButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -76,7 +76,7 @@ public class NoteBookGUI extends JFrame{
 		cp.add(speichernButton);
 		
 		clearButton = new JButton("Clear");
-		clearButton.setBounds(20, 120, 110, 20);
+		clearButton.setBounds(20, 120, 110, 24);
 		clearButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -88,7 +88,7 @@ public class NoteBookGUI extends JFrame{
 		cp.add(clearButton);
 		
 		endeButton = new JButton("Ende");
-		endeButton.setBounds(20, 150, 110, 20);
+		endeButton.setBounds(20, 150, 110, 24);
 		endeButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -102,7 +102,7 @@ public class NoteBookGUI extends JFrame{
 		cp.add(endeButton);
 		
 		textArea = new JTextArea();
-		textArea.setBounds(150, 30, 240, 250);
+		textArea.setBounds(150, 30, 240, 235);
 		cp.add(textArea);
 		
 		
