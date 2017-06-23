@@ -2,6 +2,8 @@ package notebook;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -103,6 +105,26 @@ public class NoteBookGUI extends JFrame{
 		
 		textArea = new JTextArea();
 		textArea.setBounds(150, 30, 240, 235);
+		textArea.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				notes.setzeTermin(wtag.getSelectedItem().toString(), textArea.getText());
+				System.out.println("Speichern wurde gedrückt: "+notes.toString());
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		cp.add(textArea);
 		
 		
