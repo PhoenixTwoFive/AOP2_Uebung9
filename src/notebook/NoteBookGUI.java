@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -76,7 +77,6 @@ public class NoteBookGUI extends JFrame{
 			}
 		});
 		cp.add(speichernButton);
-		
 		clearButton = new JButton("Clear");
 		clearButton.setBounds(20, 120, 110, 24);
 		clearButton.addActionListener(new ActionListener() {
@@ -84,7 +84,14 @@ public class NoteBookGUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				System.out.println("Clear wurde gedrückt.");
+				int result = JOptionPane.showConfirmDialog( null,"Sicher?","Löschen bestätigen", JOptionPane.OK_CANCEL_OPTION);
+				System.out.println(result);
+				if(result==0){
+					notes.loescheAlles();
+					textArea.setText(notes.leseTermin(wtag.getSelectedItem().toString()));
+					System.out.println("Clear wurde gedrückt.");
+				}
+				
 			}
 		});
 		cp.add(clearButton);
@@ -126,7 +133,6 @@ public class NoteBookGUI extends JFrame{
 			}
 		});
 		cp.add(textArea);
-		
 		
 	}
 	

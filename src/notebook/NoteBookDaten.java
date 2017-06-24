@@ -19,6 +19,10 @@ public class NoteBookDaten {
 	public void loescheTermin(String key){
 		
 	}
+	
+	public void loescheAlles(){
+		notesMap.clear();
+	}
 	@Override
 	public String toString(){
 		return notesMap.toString();
