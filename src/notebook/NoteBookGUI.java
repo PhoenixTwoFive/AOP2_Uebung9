@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -59,9 +60,15 @@ public class NoteBookGUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				try {
+					notes.loadFromFile("test.notes");
+				} catch (ClassNotFoundException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				textArea.setText(notes.leseTermin(wtag.getSelectedItem().toString()));
-				System.out.println("Anzeigen wurde gedrückt ("+wtag.getSelectedItem().toString()+ ") :"+notes.toString());
 			}
+			
 		});
 		cp.add(anzeigenButton);
 		
@@ -73,10 +80,18 @@ public class NoteBookGUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				notes.setzeTermin(wtag.getSelectedItem().toString(), textArea.getText());
+				try {
+					notes.saveToFile("test.notes");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				System.out.println("Speichern wurde gedrückt: "+notes.toString());
 			}
 		});
 		cp.add(speichernButton);
+		
+		
 		clearButton = new JButton("Clear");
 		clearButton.setBounds(20, 120, 110, 24);
 		clearButton.addActionListener(new ActionListener() {
